@@ -28,7 +28,7 @@ function SoundBoard_Comms:OnChatMessage(message, sender, channelName)
 
     local name = strsub(msg, 12)
     if not name or name == "" then
-        SoundBoard:Print("Réception d’un message vide.")
+        -- SoundBoard:Print("Réception d’un message vide.")
         return
     end
 

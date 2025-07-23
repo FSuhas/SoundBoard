@@ -23,7 +23,7 @@ function SoundBoard:RegisterEvents()
         if event ~= "PLAYER_ENTERING_WORLD" then
             if not loaded then
                 loaded = true
-                SoundBoard:Print("Chargé.")
+                SoundBoard:Print("|cff00ff00Load|r. |cff00ffff/sb|r to open the SoundBoard")
                 SoundBoard:JoinHiddenChannel()
                 if SoundBoard_UI and SoundBoard_UI.CreateFrame then
                     SoundBoard_UI:CreateFrame()
@@ -44,7 +44,7 @@ function SoundBoard:RegisterEvents()
             if SoundBoard_Comms and SoundBoard_Comms.OnChatMessage then
                 SoundBoard_Comms:OnChatMessage(message, sender, channelName)
             else
-                print("⚠ SoundBoard_Comms non défini")
+                --print("⚠ SoundBoard_Comms non défini")
             end
         end
     end)
@@ -57,25 +57,25 @@ function SoundBoard:JoinHiddenChannel()
         ChatFrame_RemoveChannel(DEFAULT_CHAT_FRAME, HIDDEN_CHANNEL)
         -- self:Print("Canal caché rejoint avec succès.")
     else
-        self:Print("Erreur: impossible de rejoindre le canal caché.")
+        -- self:Print("Erreur: impossible de rejoindre le canal caché.")
     end
 end
 
 function SoundBoard:SendSound(name)
     local now = GetTime()
     if not name then
-        self:Print("Erreur : nom du son manquant.")
+        -- self:Print("Erreur : nom du son manquant.")
         return
     end
     if now - self.lastSoundTime < self.cooldown then
-        self:Print("Attends " .. math.ceil(self.cooldown - (now - self.lastSoundTime)) .. " sec.")
+        self:Print("Wait " .. math.ceil(self.cooldown - (now - self.lastSoundTime)) .. " sec.")
         return
     end
 
     self.lastSoundTime = now
     local id = GetChannelName(HIDDEN_CHANNEL)
     if id == 0 then
-        self:Print("Canal '" .. HIDDEN_CHANNEL .. "' non rejoint.")
+        --self:Print("Canal '" .. HIDDEN_CHANNEL .. "' non rejoint.")
         return
     end
 
@@ -93,7 +93,7 @@ function SoundBoard:PlaySoundByName(name)
         PlaySoundFile(path)
         -- self:Print("Lecture locale : " .. name)
     else
-        self:Print("Son introuvable : " .. name)
+        --self:Print("Son introuvable : " .. name)
     end
 end
 

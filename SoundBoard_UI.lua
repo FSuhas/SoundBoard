@@ -175,16 +175,16 @@ function SoundBoard_UI:AddMuteButton(parent)
     btn:SetScript("OnClick", function()
         SoundBoard.muted = not SoundBoard.muted
         if SoundBoard.muted then
-            print("🔇 Mode muet activé.")
+            print("🔇 Mute mode activated.")
         else
-            print("🔊 Mode muet désactivé.")
+            print("🔊 Mute mode disabled.")
         end
         UpdateText()
     end)
 
     btn:SetScript("OnEnter", function()
         GameTooltip:SetOwner(btn, "ANCHOR_RIGHT")
-        GameTooltip:SetText("Activer/Désactiver le son", 1, 1, 1)
+        GameTooltip:SetText("Sound on/off", 1, 1, 1)
         GameTooltip:Show()
     end)
 
