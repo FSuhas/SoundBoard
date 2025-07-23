@@ -142,7 +142,7 @@ function SoundBoard_UI:CreateFrame()
     -- ✅ Bouton texte mute
     self:AddMuteButton(frame)
 
-    -- frame:Hide()
+    frame:Hide()
 
     SLASH_SOUNDBOARD1 = "/sb"
     SlashCmdList["SOUNDBOARD"] = function()
