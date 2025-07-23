@@ -1,5 +1,7 @@
 # 🎵 SoundBoard – Addon World of Warcraft 1.12 (Turtle WoW)
 
+![alt text](image.png)
+
 ## 🇫🇷 Description (Français)
 
 **SoundBoard** est un addon pour WoW 1.12 permettant aux membres d’un groupe ou raid disposant de l’addon de jouer des sons synchronisés.
