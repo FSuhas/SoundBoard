@@ -18,7 +18,7 @@
 - `/sb`     → Ouvre ou ferme l’interface.
 
 
-## Description (English)
+## 🇬🇧 Description (English)
 
 **SoundBoard** is a WoW 1.12 addon allowing players in a group or raid (who also use the addon) to play synchronized sounds.
 
