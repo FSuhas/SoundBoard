@@ -43,21 +43,19 @@ function SoundBoard_UI:CreateFrame()
     end
 end
 
+
+
 function SoundBoard_UI:AddMuteButton(parent)
     if self.muteButton then return end
 
     local btn = CreateFrame("Button", nil, parent)
     btn:SetWidth(24)
     btn:SetHeight(24)
-    btn:SetPoint("TOPRIGHT", -4, -4)
+    btn:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -4, -4)
 
-    if SoundBoard.muted then
-        btn:SetNormalTexture("Interface\\Buttons\\UI-GroupLoot-Pass-Up") -- une croix pour mute
-    else
-        btn:SetNormalTexture("Interface\\Buttons\\UI-GroupLoot-Dice-Up") -- une icône visible
-    end
-
+    btn:SetNormalTexture("Interface\\Icons\\INV_Misc_Bell_01")
     btn:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
+
     btn.tooltip = "Activer/Désactiver le son"
 
     btn:SetScript("OnEnter", function(self)
@@ -70,16 +68,29 @@ function SoundBoard_UI:AddMuteButton(parent)
         GameTooltip:Hide()
     end)
 
+    if SoundBoard == nil then SoundBoard = {} end
+    if SoundBoard.muted == nil then SoundBoard.muted = false end
+
+    local function UpdateButtonTexture()
+        if SoundBoard.muted then
+            btn:SetNormalTexture("Interface\\Icons\\Ability_Creature_Cursed_02")
+        else
+            btn:SetNormalTexture("Interface\\Icons\\INV_Misc_Bell_01")
+        end
+    end
+
     btn:SetScript("OnClick", function()
         SoundBoard.muted = not SoundBoard.muted
         if SoundBoard.muted then
-            SoundBoard:Print("🔇 Mode muet activé.")
-            btn:SetNormalTexture("Interface\\Buttons\\UI-GroupLoot-Pass-Up")
+            print("🔇 Mode muet activé.")
         else
-            SoundBoard:Print("🔊 Mode muet désactivé.")
-             btn:SetNormalTexture("Interface\\Buttons\\UI-GroupLoot-Dice-Up") -- icône verte
+            print("🔊 Mode muet désactivé.")
         end
+        UpdateButtonTexture()
     end)
+
+    UpdateButtonTexture()
+    btn:Show()
 
     self.muteButton = btn
 end

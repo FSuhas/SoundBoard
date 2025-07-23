@@ -1,6 +1,6 @@
 SoundBoard = {}
 SoundBoard.lastSoundTime = 0
-SoundBoard.cooldown = 3
+SoundBoard.cooldown = 1
 SoundBoard.muted = false
 
 
