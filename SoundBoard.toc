@@ -1,0 +1,10 @@
+## Interface: 11200
+## Title: SoundBoard
+## Author: Fabien
+## Version: 1.0
+## Notes: Partage et joue des sons dans le groupe/raid
+
+SoundBoard_Comms.lua
+SoundBoard_Sounds.lua
+SoundBoard_UI.lua
+SoundBoard.lua
